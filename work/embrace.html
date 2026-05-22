@@ -8,6 +8,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://akshatsomani.vercel.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Work", "item": "https://akshatsomani.vercel.app/work.html" },
+      { "@type": "ListItem", "position": 3, "name": "Embrace", "item": "https://akshatsomani.vercel.app/work/embrace.html" }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -21,6 +32,13 @@
   </nav>
 
   <main class="case-study">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol class="breadcrumb__list">
+        <li class="breadcrumb__item"><a href="../index.html" class="breadcrumb__link">Home</a></li>
+        <li class="breadcrumb__item"><a href="../work.html" class="breadcrumb__link">Work</a></li>
+        <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">Embrace</li>
+      </ol>
+    </nav>
     <header class="case-study__header">
       <a href="../work.html" class="case-study__back">← Work</a>
       <p class="case-study__label">Dating App PRD</p>
