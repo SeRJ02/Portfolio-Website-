@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Work', href: '/work.html' },
+];
+
+const cards = [
+  {
+    href: '/work/embrace.html',
+    label: 'Dating App PRD',
+    title: 'Embrace',
+    desc: 'A full product spec for a dating app that measures success by how fast users delete it. Nobody asked.',
+  },
+  {
+    href: '/work/dumbmoney.html',
+    label: 'SEO + Automation',
+    title: 'DumbMoney.in + MCP Server',
+    desc: 'Built a coupon site to make money and learn SEO. Built a bot because maintaining it manually was embarrassing.',
+  },
+  {
+    href: '/work/earnkaro.html',
+    label: 'Automation',
+    title: 'EarnKaro — Broadcast Automation Tool',
+    desc: '3,000 users. 10 account managers. Personal WhatsApp numbers. This was not a system.',
+  },
+  {
+    href: '/work/deals-scraper.html',
+    label: 'Automation + Affiliate',
+    title: 'Deals Scraper',
+    desc: "Scrapes deals, converts affiliate links, broadcasts to Telegram. Runs itself. I haven't touched it in weeks.",
+  },
+];
+---
+<Base title="Work — Akshat Somani">
+  <main class="work-index">
+    <Breadcrumb items={crumbs} />
+    <PageHeader title="Work" sub="Four projects. Each one started with something broken." />
+    <div class="work-grid">
+      {cards.map((c) => (
+        <a href={c.href} class="work-card work-card--large">
+          <span class="work-card__label">{c.label}</span>
+          <h2 class="work-card__title">{c.title}</h2>
+          <p class="work-card__desc">{c.desc}</p>
+          <span class="work-card__cta">Read case study →</span>
+        </a>
+      ))}
+    </div>
+  </main>
+</Base>

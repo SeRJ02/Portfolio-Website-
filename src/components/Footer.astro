@@ -1,0 +1,29 @@
+---
+interface Props {
+  variant?: 'page' | 'home';
+}
+const { variant = 'page' } = Astro.props;
+---
+{variant === 'home' ? (
+  <footer class="footer">
+    <p class="footer__big">If something here seemed <span class="accent">relevant</span> — pick one.</p>
+    <div class="footer__row">
+      <ul class="footer__links">
+        <li><a href="mailto:somaniakshat02@gmail.com">somaniakshat02@gmail.com</a></li>
+        <li><a href="https://linkedin.com/in/akshat-somani">LinkedIn</a></li>
+        <li><a href="https://github.com/SeRJ02">GitHub</a></li>
+      </ul>
+      <p class="footer__copy">// Akshat Somani · 2026</p>
+    </div>
+  </footer>
+) : (
+  <footer class="footer">
+    <p class="footer__line">If something here seemed relevant — email, LinkedIn, or GitHub. Pick one.</p>
+    <ul class="footer__links">
+      <li><a href="mailto:somaniakshat02@gmail.com">somaniakshat02@gmail.com</a></li>
+      <li><a href="https://linkedin.com/in/akshat-somani">LinkedIn</a></li>
+      <li><a href="https://github.com/SeRJ02">GitHub</a></li>
+    </ul>
+    <p class="footer__copy">Akshat Somani 2026</p>
+  </footer>
+)}

@@ -1,0 +1,37 @@
+---
+import { SITE_URL } from '../data/site.js';
+
+interface Item {
+  name: string;
+  href: string;
+}
+interface Props {
+  items: Item[];
+}
+const { items } = Astro.props;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((it, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: it.name,
+    item: `${SITE_URL}${it.href}`,
+  })),
+};
+---
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol class="breadcrumb__list">
+    {items.map((it, i) => {
+      const isLast = i === items.length - 1;
+      return (
+        <li class:list={['breadcrumb__item', isLast && 'breadcrumb__item--current']}
+            aria-current={isLast ? 'page' : undefined}>
+          {isLast ? it.name : <a href={it.href} class="breadcrumb__link">{it.name}</a>}
+        </li>
+      );
+    })}
+  </ol>
+</nav>
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

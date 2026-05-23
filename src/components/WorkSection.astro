@@ -1,0 +1,16 @@
+---
+import { PROJECTS } from '../data/projects.js';
+import FlipCard from './FlipCard.astro';
+---
+<section class="section">
+  <div class="section__head">
+    <div>
+      <div class="section__eyebrow">/ 02 — Work</div>
+      <h2 class="section__title">Four things that started broken.</h2>
+    </div>
+    <div class="section__sub">hover or tap to flip — click to open</div>
+  </div>
+  <div class="flip-grid">
+    {PROJECTS.map((p) => <FlipCard project={p} />)}
+  </div>
+</section>

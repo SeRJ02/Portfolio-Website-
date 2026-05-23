@@ -1,0 +1,33 @@
+---
+const series = [
+  { name: '01 — The Problem Statement', status: 'Live', live: true },
+  { name: '02 — Why It Happened', status: 'Drafting', live: false },
+  { name: '03 — Two Personas', status: 'Planned', live: false },
+  { name: '04 — Business Model', status: 'Planned', live: false },
+  { name: '05 — Rebuild', status: 'Planned', live: false },
+  { name: '06 — The Metrics', status: 'Planned', live: false },
+];
+---
+<section class="section">
+  <div class="section__head">
+    <div>
+      <div class="section__eyebrow">/ 03 — Thinking</div>
+      <h2 class="section__title">When something doesn't add up.</h2>
+    </div>
+  </div>
+  <div class="thinking-block">
+    <div>
+      <p class="thinking-block__lead">The Bumble teardown started as a LinkedIn post.</p>
+      <p class="thinking-block__body">It became 10 slides, 4 personas, the Beehive algorithm dismantled, trade-offs, and a quarterly prioritization matrix. That's probably a personality trait.</p>
+      <a href="/thinking.html" class="cta cta--secondary" style="margin-top: 18px;">Read the thinking</a>
+    </div>
+    <div class="thinking-block__side">
+      {series.map((s) => (
+        <div class="series-item">
+          <span>{s.name}</span>
+          <span class:list={['series-item__status', s.live && 'live']}>{s.status}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,17 +1,18 @@
 ---
+import '../styles/hero3d.css';
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.jsx';
+import WorkSection from '../components/WorkSection.astro';
+import ThinkingSection from '../components/ThinkingSection.astro';
+import BentoSection from '../components/BentoSection.astro';
+import DevTweaks from '../components/DevTweaks.jsx';
 
+const isDev = import.meta.env.DEV;
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base title="Akshat Somani — Product Manager" footerVariant="home">
+  <Hero client:visible />
+  <WorkSection />
+  <ThinkingSection />
+  <BentoSection />
+  {isDev && <DevTweaks client:only="react" />}
+</Base>

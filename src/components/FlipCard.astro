@@ -1,0 +1,66 @@
+---
+interface Stat { k: string; v: string; }
+interface Project {
+  href: string;
+  label: string;
+  title: string;
+  badge: string;
+  index: string;
+  tagline: string;
+  desc: string;
+  chips: string[];
+  stats: Stat[];
+}
+interface Props { project: Project; }
+
+const { project } = Astro.props;
+const faceMidStyle = 'position: relative; z-index: 2; display: flex; flex-direction: column; gap: 14px;';
+---
+<div class="flip" tabindex="0">
+  <div class="flip__inner">
+    <div class="flip__edge flip__edge--right"></div>
+    <div class="flip__edge flip__edge--left"></div>
+    <div class="flip__edge flip__edge--top"></div>
+    <div class="flip__edge flip__edge--bottom"></div>
+    <div class="flip__shadow"></div>
+
+    <div class="flip__face flip__face--front">
+      <div class="flip__head">
+        <span class="flip__head-label">{project.label}</span>
+        <div class="flip__badge">{project.badge}</div>
+      </div>
+      <div style={faceMidStyle}>
+        <h3 class="flip__title">{project.title}</h3>
+        <p class="flip__desc">{project.tagline}</p>
+      </div>
+      <div class="flip__foot">
+        <div class="flip__chips">
+          {project.chips.map((c, i) => (
+            <span class:list={['flip__chip', i === 1 && 'flip__chip--alt']}>{c}</span>
+          ))}
+        </div>
+        <span class="flip__more">View detail</span>
+      </div>
+    </div>
+
+    <div class="flip__face flip__face--back">
+      <div class="flip__head">
+        <span class="flip__head-label">{project.index} / 04</span>
+        <div class="flip__badge">{project.badge}</div>
+      </div>
+      <div style={faceMidStyle}>
+        <h3 class="flip__title">{project.title}</h3>
+        <p class="flip__desc">{project.desc}</p>
+      </div>
+      <div class="flip__stats">
+        {project.stats.map((s) => (
+          <div class="flip__stat">
+            <span class="flip__stat-k">{s.k}</span>
+            <span class="flip__stat-v">{s.v}</span>
+          </div>
+        ))}
+      </div>
+      <a href={project.href} class="flip__open">Open case study</a>
+    </div>
+  </div>
+</div>

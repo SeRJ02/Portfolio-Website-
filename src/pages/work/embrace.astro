@@ -1,0 +1,53 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Work', href: '/work.html' },
+  { name: 'Embrace', href: '/work/embrace.html' },
+];
+---
+<Base title="Embrace — Dating App PRD — Akshat Somani">
+  <main class="case-study">
+    <Breadcrumb items={crumbs} />
+    <header class="case-study__header">
+      <a href="/work.html" class="case-study__back">← Work</a>
+      <p class="case-study__label">Dating App PRD</p>
+      <h1 class="case-study__title">Embrace</h1>
+      <p class="case-study__tagline">One match. One day. Get off the app. Nobody asked me to build this. I did it anyway.</p>
+      <ul class="case-study__links">
+        <li><a class="case-study__link" href="https://embrace-xi.vercel.app/" target="_blank" rel="noopener">View the validation site →</a></li>
+      </ul>
+    </header>
+    <article class="case-study__body">
+      <section class="star-section">
+        <h2 class="star-section__heading">Situation</h2>
+        <p>Every major dating app makes money when you stay single. Their north star is time on app, not relationships formed. The swipe mechanic was never designed to get you into a relationship. It was designed to keep you swiping. The result: 75% of Gen Z report dating app burnout. Women get 250+ likes a day and hit inbox paralysis. Men report zero dates despite daily use. Same app, completely different failures — both caused by the same incentive misalignment. The problem wasn't that people couldn't find connections online. It was that the apps weren't actually trying to help them do that.</p>
+      </section>
+      <section class="star-section">
+        <h2 class="star-section__heading">Task</h2>
+        <p>Write a production-spec PRD for a dating app that inverts the incentive structure entirely — one where success is defined as users leaving the app, not staying on it. Scope it to MVP, define the matching logic, set honest success metrics, and map the risks clearly enough that an engineering team could actually build from it.</p>
+      </section>
+      <section class="star-section">
+        <h2 class="star-section__heading">Action</h2>
+        <p>Started with the problem, not the feature list. Conducted user research in Delhi NCR to validate two core assumptions: that users would accept a one-match-per-day constraint if the reasoning was explained clearly, and that personality-first matching would outperform photo-first for actual connection quality. Built two personas from that research. Designed the core product around three non-negotiable constraints: one match per day at 8 PM (hard system constraint, not a default), personality first and photos second (matching via semantic similarity on prompt answers, photos only revealed on mutual agreement), and the exit as the success state (when both users share social handles, the chat closes — app response: You're all set. See you tomorrow at 8). Wrote the full 13-page PRD covering executive summary, problem statement, six functional requirements with user stories, success metrics, technical architecture, design principles, risk register, phased 24-week timeline, open questions, and assumptions. Shipped a live validation site alongside the PRD to test demand for the one-match-per-day premise with real users.</p>
+      </section>
+      <section class="star-section">
+        <h2 class="star-section__heading">Result</h2>
+        <ul class="result-list">
+          <li>13-page production-spec PRD written to engineering handoff standard</li>
+          <li>North star metric defined as Mutual Social Handoffs per Day</li>
+          <li>Explicitly defined what the app would NOT measure: session length, notifications clicked, premium conversion</li>
+          <li>Publicly available on GitHub</li>
+          <li>Full phased timeline with closed beta plan for 500 NCR users</li>
+          <li>Live validation site at embrace-xi.vercel.app</li>
+        </ul>
+      </section>
+      <section class="star-section star-section--reflection">
+        <h2 class="star-section__heading">What I'd Do Differently</h2>
+        <p>The open questions section is honest about what the PRD doesn't answer — minimum viable pool size, gender and preference filtering logic, moderation team structure at launch. These aren't oversights, they're genuine unknowns that need engineering and ops input. If I were taking this into a real build, the next step is a 2-day working session with engineering to close those questions before Phase 0 starts. A PRD without those answers is a research document, not a build brief. This one is closer to the former than I'd like.</p>
+      </section>
+    </article>
+  </main>
+</Base>

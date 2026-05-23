@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about.html' },
+];
+---
+<Base title="About — Akshat Somani">
+  <main class="about">
+    <Breadcrumb items={crumbs} />
+    <div class="about__content">
+      <p class="about__body">B.Tech from SRMIST. Currently at EarnKaro figuring out where growth and product overlap. Co-founded a fintech startup — learned more from that than from anything with a salary. Wrote a full PRD for a dating app I don't own. Built an MCP server once, mostly to prove I could. Also built a coupon site because passive income seemed like a fun problem to solve.</p>
+      <p class="about__body">Good product work looks like finding the thing that's quietly broken, understanding why it's broken, and shipping something that fixes it. The quietly part matters — anyone can see the loud problems.</p>
+      <ul class="about__links">
+        <li><a href="https://linkedin.com/in/akshat-somani">LinkedIn</a></li>
+        <li><a href="https://github.com/SeRJ02">GitHub</a></li>
+        <li><a href="/resume.pdf">Resume</a></li>
+        <li><a href="mailto:somaniakshat02@gmail.com">Email</a></li>
+      </ul>
+    </div>
+  </main>
+</Base>

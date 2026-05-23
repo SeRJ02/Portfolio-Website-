@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Thinking', href: '/thinking.html' },
+];
+
+const series = [
+  { name: 'Post 1 — The Problem Statement', status: 'Published' },
+  { name: 'Post 2 — Why It Happened', status: 'Planned' },
+  { name: 'Post 3 — The Two User Personas', status: 'Planned' },
+  { name: 'Post 4 — The Business Model Problem', status: 'Planned' },
+  { name: "Post 5 — What I'd Build Differently", status: 'Planned' },
+  { name: 'Post 6 — The Metrics', status: 'Planned' },
+];
+---
+<Base title="Thinking — Akshat Somani">
+  <main class="thinking">
+    <Breadcrumb items={crumbs} />
+    <PageHeader title="Thinking" sub="I write when something doesn't add up." />
+
+    <article class="thinking-piece thinking-piece--featured">
+      <span class="thinking-piece__tag">Product Teardown</span>
+      <h2>The Dating App Problem — A Product Teardown</h2>
+      <p>Started as a LinkedIn post about why dating apps are broken. Became a full Bumble teardown — 10 slides, 4 personas, the Beehive algorithm, solutions, trade-offs, and a quarterly prioritization matrix.</p>
+      <a href="#" class="cta">Read the teardown →</a>
+    </article>
+
+    <section class="thinking-series">
+      <h3>LinkedIn Series — The Dating App Problem</h3>
+      <p>Six-part series. Each post is a standalone piece that builds toward the full teardown.</p>
+      <ul>
+        {series.map((s) => (
+          <li>{s.name} ({s.status})</li>
+        ))}
+      </ul>
+    </section>
+  </main>
+</Base>
